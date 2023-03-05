@@ -15,10 +15,5 @@ jobs:
           python-version: '3.x'
       - name: Installing dependencies
         run: pip install mkdocs-material
-      - name: Building docs
-        run: mkdocs build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+      - name: Build and deploy docs
+        run: mkdocs gh-deploy
